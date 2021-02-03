@@ -11,5 +11,5 @@ from departamento
 
 select empleado.*
 from empleado, cargo
-where empleado.idcargo in (select cargo.idcargo where cargo.nombre like 'programador')
-and empleado.sueldo > (select cargo.sueldo_min where cargo.nombre like 'programador')
+where empleado.idcargo in (select cargo.idcargo where cargo.nombre like 'programador') and 
+empleado.sueldo > (select cargo.sueldo_min where cargo.nombre like 'programador')
