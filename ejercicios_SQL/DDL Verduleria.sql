@@ -1,5 +1,5 @@
 -- ==========================================================
--- Creación de la Base de Datos
+-- CreaciÃ³n de la Base de Datos
 -- ==========================================================
 
 USE master;
@@ -24,12 +24,12 @@ GO
 CREATE TABLE grupos (
   IdGrupo int NOT NULL,
   NombreGrupo varchar(50) DEFAULT NULL,
-  PRIMARY KEY (IdGrupo))
+  PRIMARY KEY (IdGrupo));
 
 INSERT INTO grupos (IdGrupo,NombreGrupo) VALUES 
  (1,'Frutas'),
  (3,'Hortalizas'),
- (10,'Tubérculos'),
+ (10,'TubÃ©rculos'),
  (4,'Tuberculos2'),
  (2,'Verduras');
 
@@ -40,7 +40,7 @@ CREATE TABLE productos (
   Precio decimal DEFAULT NULL,
   PRIMARY KEY (IdProducto),
   CONSTRAINT FK_Grupo FOREIGN KEY (IdGrupo) REFERENCES grupos (IdGrupo)
-)
+);
 
 INSERT INTO productos (IdProducto,NomProducto,IdGrupo,Precio) VALUES 
  (1,'Mandarinas',1,3.9325),
@@ -69,7 +69,7 @@ INSERT INTO productos (IdProducto,NomProducto,IdGrupo,Precio) VALUES
   Telefon varchar(50) DEFAULT NULL,
   EstalCivil varchar(15) DEFAULT NULL,
   Guap@ tinyint NOT NULL,
-  PRIMARY KEY (IdVendedor))
+  PRIMARY KEY (IdVendedor));
   
  INSERT INTO vendedores (IdVendedor,NombreVendedor,NIF,Direccion,Poblacion,CodPostal,Telefon,EstalCivil,Guap@) VALUES 
  (1,'Pepito','32456645D','cvbmcvbmcvb','Barcelona','08782','937745214','Soltero',1),
@@ -93,7 +93,7 @@ INSERT INTO productos (IdProducto,NomProducto,IdGrupo,Precio) VALUES
   Kilos decimal DEFAULT NULL,
   CONSTRAINT FK_Vendedor FOREIGN KEY (Vendedor) REFERENCES vendedores (IdVendedor),
   CONSTRAINT FK_Producto FOREIGN KEY (Producto) REFERENCES productos (IdProducto)
-) 
+);
 
 INSERT INTO ventas (Vendedor,Producto,Kilos) VALUES 
  (7,1,2089.00000),
